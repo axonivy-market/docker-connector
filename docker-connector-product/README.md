@@ -1,4 +1,4 @@
-# MY-PRODUCT-NAME
+# Docker Connector
 
 YOUR DESCRIPTION GOES HERE
 
