@@ -1,15 +1,16 @@
 # Docker Connector
 
-YOUR DESCRIPTION GOES HERE
+Create, start, stop, remove Docker containers with the Axon Ivy's Docker Connector directly from your business processes.
 
 ## Demo
 
-YOUR DEMO DESCRIPTION GOES HERE
+The demo process creates and starts an additional Axon Ivy Engine in a Docker container. 
+Then the process shows a HTML Dialog where you can open an additional browser tab that shows the info page of the Axon Ivy Engine.
+If you proceed the HTML Dialog then the container gets stopped and removed.
 
 ## Setup
 
-YOUR SETUP DESCRIPTION GOES HERE
-
+To setup the Docker Connnector, add the following variable to your Axon Ivy Project:
 ```
 @variables.yaml@
 ```
