@@ -41,7 +41,7 @@
           "code" : [
             "import com.axonivy.connector.docker.PortBinding;",
             "PortBinding binding = new PortBinding();",
-            "binding.publicPort = 8080;",
+            "binding.publicPort = 9090;",
             "binding.internalPort = 8080;",
             "",
             "param.ports = [binding];"
