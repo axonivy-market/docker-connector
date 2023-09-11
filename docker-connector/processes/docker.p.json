@@ -30,10 +30,12 @@
           "map" : {
             "result.containerId" : "in.containerId"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 72 }
+        "at" : { "x" : 176, "y" : 72 },
+        "icon" : "res:/webContent/icons/docker.png?small"
       },
       "connect" : { "id" : "f4", "to" : "f3" }
     }, {
@@ -92,10 +94,12 @@
           "map" : {
             "out.containerId" : "param.containerId"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 184 }
+        "at" : { "x" : 176, "y" : 184 },
+        "icon" : "res:/webContent/icons/docker.png?small"
       },
       "connect" : { "id" : "f8", "to" : "f7" }
     }, {
@@ -134,10 +138,12 @@
           "map" : {
             "out.containerId" : "param.containerId"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 176, "y" : 288 }
+        "at" : { "x" : 176, "y" : 288 },
+        "icon" : "res:/webContent/icons/docker.png?small"
       },
       "connect" : { "id" : "f14", "to" : "f12" }
     }, {
@@ -176,10 +182,12 @@
           "map" : {
             "out.containerId" : "param.containerId"
           }
-        }
+        },
+        "tags" : "connector"
       },
       "visual" : {
-        "at" : { "x" : 184, "y" : 408 }
+        "at" : { "x" : 184, "y" : 408 },
+        "icon" : "res:/webContent/icons/docker.png?small"
       },
       "connect" : { "id" : "f18", "to" : "f17" }
     }, {
