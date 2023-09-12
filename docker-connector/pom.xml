@@ -17,7 +17,7 @@
       <exclusions>
         <exclusion>
           <groupId>com.google.guava</groupId>
-		  <artifactId>guava</artifactId>
+          <artifactId>guava</artifactId>
         </exclusion>
       </exclusions>       
     </dependency>
