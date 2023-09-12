@@ -41,7 +41,7 @@
           "code" : [
             "import com.axonivy.connector.docker.PortBinding;",
             "PortBinding binding = new PortBinding();",
-            "binding.publicPort = 9090;",
+            "binding.publicPort = ivy.var.AxonIvyEngine_Port.toNumber();",
             "binding.internalPort = 8080;",
             "",
             "param.ports = [binding];"
@@ -56,7 +56,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 216, "y" : 296 }
+        "at" : { "x" : 216, "y" : 296 },
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : { "id" : "f6", "to" : "f5" }
     }, {
@@ -75,7 +76,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 360, "y" : 296 }
+        "at" : { "x" : 360, "y" : 296 },
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : { "id" : "f13", "to" : "f12" }
     }, {
@@ -94,7 +96,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 680, "y" : 296 }
+        "at" : { "x" : 680, "y" : 296 },
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : { "id" : "f10", "to" : "f9" }
     }, {
@@ -113,7 +116,8 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 840, "y" : 296 }
+        "at" : { "x" : 840, "y" : 296 },
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     }, {

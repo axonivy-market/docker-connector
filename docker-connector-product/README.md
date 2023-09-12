@@ -6,7 +6,7 @@ Create, start, stop, remove Docker containers with the Axon Ivy's Docker Connect
 
 The demo process creates and starts an additional Axon Ivy Engine in a Docker container. 
 Then the process shows a HTML Dialog where you can open an additional browser tab that shows the info page of the Axon Ivy Engine.
-If you proceed the HTML Dialog then the container gets stopped and removed.
+If you proceed in the HTML Dialog, the container gets stopped and removed.
 
 ## Setup
 

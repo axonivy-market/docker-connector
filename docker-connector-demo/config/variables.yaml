@@ -6,3 +6,5 @@
 # '<project>/Config/_<environment>/variables.yaml
 #
 Variables:
+  AxonIvyEngine:
+    Port: 9090
