@@ -34,13 +34,10 @@ public class IvyDockerClient {
     var dockerUrl = Ivy.var().get("Docker.URL");
     var config = DefaultDockerClientConfig.createDefaultConfigBuilder()
             .withDockerHost(dockerUrl)
-//            .withDockerTlsVerify(true)
-//            .withDockerCertPath("C:\\Users\\rwei.ZUGPCRWEI2\\AppData\\Local\\Docker\\pki")
             .build();
 
     var httpClient = new ApacheDockerHttpClient.Builder()
             .dockerHost(config.getDockerHost())
-//            .sslConfig(config.getSSLConfig())
             .maxConnections(100)
             .connectionTimeout(Duration.ofSeconds(30))
             .responseTimeout(Duration.ofSeconds(45))
@@ -113,5 +110,4 @@ public class IvyDockerClient {
           .withRemotePath(containerPath)
           .exec();
   }
-
 }
