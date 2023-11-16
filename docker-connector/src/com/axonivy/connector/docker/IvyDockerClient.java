@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.hc.core5.http.NoHttpResponseException;
+
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.CreateContainerCmd;
 import com.github.dockerjava.api.command.ListContainersCmd;
@@ -23,7 +25,11 @@ public class IvyDockerClient {
   private DockerClient client;
 
   private IvyDockerClient() {
-    client = createDockerClient();
+    try {
+      client = createDockerClient();
+    } catch (Exception ex) {
+      Ivy.log().error("Could not create docker client", ex);
+    }
   }
 
   public static IvyDockerClient instance() {
@@ -61,19 +67,19 @@ public class IvyDockerClient {
     return client.listContainersCmd();
   }
 
+  public void startContainer(String id) {
+    retry(() -> client.startContainerCmd(id).exec());
+    Ivy.log().info("Container "+id+" started");
+  }
+
   public void stopContainer(String id) {
-    client.stopContainerCmd(id).exec();
+    retry(() -> client.stopContainerCmd(id).exec());
     Ivy.log().info("Container "+id+" stopped");
   }
 
   public void removeContainer(String id) {
-    client.removeContainerCmd(id).exec();
+    retry(() -> client.removeContainerCmd(id).exec());
     Ivy.log().info("Container "+id+" removed");
-  }
-
-  public void startContainer(String id) {
-    client.startContainerCmd(id).exec();
-    Ivy.log().info("Container "+id+" started");
   }
 
   public void executeInContainer(String id, String... command) {
@@ -109,5 +115,23 @@ public class IvyDockerClient {
           .withHostResource(hostPath.toString())
           .withRemotePath(containerPath)
           .exec();
+  }
+
+  private void retry(Runnable r) {
+    int retry = 0;
+    while (true) {
+      try {
+        r.run();
+        return;
+      } catch (RuntimeException ex) {
+        if (! (ex.getCause() instanceof NoHttpResponseException)) {
+          throw ex;
+        }
+        retry++;
+        if (retry >= 3) {
+          throw ex;
+        }
+      }
+    }
   }
 }

@@ -103,7 +103,7 @@
     }, {
       "id" : "f9",
       "type" : "SubProcessCall",
-      "name" : "docker",
+      "name" : "Remove Container",
       "config" : {
         "processCall" : "docker:removeContainer(String)",
         "call" : {
