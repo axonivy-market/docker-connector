@@ -1,0 +1,25 @@
+# == Variables ==
+# 
+# You can define here your project Variables.
+# If you want to define/override a Variable for a specific Environment, 
+# add an additional ‘variables.yaml’ file in a subdirectory in the ‘Config’ folder: 
+# '<project>/Config/_<environment>/variables.yaml
+#
+Variables:
+  Docker:
+    # URL to communicate with the docker daemon
+    # Windows Docker Desktop [https://www.docker.com/products/docker-desktop/] (localhost only):
+    # npipe:////./pipe/dockerDesktopLinuxEngine
+    #
+    # Windows Podman [https://podman.io] (localhost only):
+    # npipe:////./pipe/docker_engine
+    #
+    # Linux (localhost only):
+    # unix:///var/run/docker.sock
+    #
+    # TCP (Outside container):
+    # tcp://localhost:2375
+    #
+    # TCP (Inside a container):
+    # tcp://host.docker.internal:2375    
+    URL: "unix:///var/run/docker.sock"

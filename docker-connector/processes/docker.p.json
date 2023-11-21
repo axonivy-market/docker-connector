@@ -1,0 +1,217 @@
+{
+  "format" : "10.0.0",
+  "id" : "18A50DF32C4DF1E5",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "com.axonivy.connector.docker.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "createContainer(String,String,List<PortBinding>)",
+      "config" : {
+        "callSignature" : "createContainer",
+        "input" : {
+          "params" : [
+            { "name" : "image", "type" : "String" },
+            { "name" : "name", "type" : "String" },
+            { "name" : "ports", "type" : "List<com.axonivy.connector.docker.PortBinding>" }
+          ],
+          "map" : {
+            "out.image" : "param.image",
+            "out.name" : "param.name",
+            "out.ports" : "param.ports"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "containerId", "type" : "String" }
+          ],
+          "map" : {
+            "result.containerId" : "in.containerId"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 176, "y" : 72 },
+        "icon" : "res:/webContent/icons/docker.png?small"
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 504, "y" : 72 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "Script",
+      "name" : "Create Container",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.github.dockerjava.api.model.Ports.Binding;",
+            "import com.github.dockerjava.api.model.ExposedPort;",
+            "import com.github.dockerjava.api.command.CreateContainerResponse;",
+            "import com.github.dockerjava.api.model.HostConfig;",
+            "import com.github.dockerjava.api.model.PortBinding;",
+            "import com.axonivy.connector.docker.IvyDockerClient;",
+            "",
+            "Binding.bindPort(15);",
+            "List<PortBinding> ports = [];",
+            "for (com.axonivy.connector.docker.PortBinding binding : in.ports) { ",
+            "  Binding b = Binding.bindPort(binding.publicPort);",
+            "  ports.add(new PortBinding(b, new ExposedPort(binding.internalPort)));",
+            "}",
+            "HostConfig hostConfig = HostConfig.newHostConfig();",
+            "if (! ports.isEmpty()) {",
+            "  hostConfig.withPortBindings(ports);",
+            "}",
+            "CreateContainerResponse response = IvyDockerClient.instance()",
+            "        .createContainerCmd(in.image)",
+            "        .withName(in.name)",
+            "        .withHostConfig(hostConfig)",
+            "        .exec();",
+            "out.containerId = response.id;"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 360, "y" : 72 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "CallSubStart",
+      "name" : "startContainer(String)",
+      "config" : {
+        "callSignature" : "startContainer",
+        "input" : {
+          "params" : [
+            { "name" : "containerId", "type" : "String" }
+          ],
+          "map" : {
+            "out.containerId" : "param.containerId"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 176, "y" : 184 },
+        "icon" : "res:/webContent/icons/docker.png?small"
+      },
+      "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f6",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 184 }
+      }
+    }, {
+      "id" : "f7",
+      "type" : "Script",
+      "name" : "Start Container",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.connector.docker.IvyDockerClient;",
+            "",
+            "IvyDockerClient.instance().startContainer(in.containerId);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 368, "y" : 184 }
+      },
+      "connect" : { "id" : "f9", "to" : "f6" }
+    }, {
+      "id" : "f10",
+      "type" : "CallSubStart",
+      "name" : "stopContainer(String)",
+      "config" : {
+        "callSignature" : "stopContainer",
+        "input" : {
+          "params" : [
+            { "name" : "containerId", "type" : "String" }
+          ],
+          "map" : {
+            "out.containerId" : "param.containerId"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 176, "y" : 288 },
+        "icon" : "res:/webContent/icons/docker.png?small"
+      },
+      "connect" : { "id" : "f14", "to" : "f12" }
+    }, {
+      "id" : "f11",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 288 }
+      }
+    }, {
+      "id" : "f12",
+      "type" : "Script",
+      "name" : "Stop Container",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.connector.docker.IvyDockerClient;",
+            "",
+            "IvyDockerClient.instance().stopContainer(in.containerId);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 368, "y" : 288 }
+      },
+      "connect" : { "id" : "f13", "to" : "f11" }
+    }, {
+      "id" : "f15",
+      "type" : "CallSubStart",
+      "name" : "removeContainer",
+      "config" : {
+        "callSignature" : "removeContainer",
+        "input" : {
+          "params" : [
+            { "name" : "containerId", "type" : "String" }
+          ],
+          "map" : {
+            "out.containerId" : "param.containerId"
+          }
+        },
+        "tags" : "connector"
+      },
+      "visual" : {
+        "at" : { "x" : 184, "y" : 408 },
+        "icon" : "res:/webContent/icons/docker.png?small"
+      },
+      "connect" : { "id" : "f18", "to" : "f17" }
+    }, {
+      "id" : "f16",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 520, "y" : 408 }
+      }
+    }, {
+      "id" : "f17",
+      "type" : "Script",
+      "name" : "Remove Container",
+      "config" : {
+        "output" : {
+          "code" : [
+            "import com.axonivy.connector.docker.IvyDockerClient;",
+            "",
+            "IvyDockerClient.instance().removeContainer(in.containerId);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 376, "y" : 408 }
+      },
+      "connect" : { "id" : "f19", "to" : "f16" }
+    } ]
+}

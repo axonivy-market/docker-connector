@@ -1,0 +1,4 @@
+Data #class
+com.axonivy.market.docker.connector.demo #namespace
+containerId String #field
+containerId PERSISTENT #fieldModifier
