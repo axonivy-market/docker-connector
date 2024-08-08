@@ -10,7 +10,7 @@ The prerequisite for the demo process is that a Docker daemon is running on your
 
 In the demo process we show you how to create a container for the Axon Ivy engine by using the Axon Ivy engine image you find at dockhub: https://hub.docker.com/r/axonivy/axonivy-engine.
 
-![image](https://github.com/user-attachments/assets/7237cc86-310e-4819-8caf-54e04c1498e5)
+![image](images/dockerdemo1.png)
 
 
 
