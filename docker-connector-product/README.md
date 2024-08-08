@@ -20,9 +20,13 @@ The container created in Podman:
 
 ![image](images/dockerdemo3.png)
 
+An UI is now opened in the process, which gives you the option of stopping and deleting this container again by clicking "Proceed".
 
-Then the process shows a HTML Dialog where you can open an additional browser tab that shows the info page of the Axon Ivy Engine.
-If you proceed in the HTML Dialog, the container gets stopped and removed.
+![image](images/dockerdemo4.png)
+
+The container is now removed from Podman:
+
+![image](images/dockerdemo5.png)
 
 ## Setup
 
