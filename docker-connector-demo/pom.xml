@@ -24,7 +24,7 @@
     <dependency>
       <groupId>com.axonivy.market</groupId>
       <artifactId>docker-connector</artifactId>
-      <version>10.0.5-SNAPSHOT</version>
+      <version>${project.version}</version>
       <type>iar</type>
     </dependency>
   </dependencies>
