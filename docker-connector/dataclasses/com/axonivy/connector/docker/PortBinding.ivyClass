@@ -1,6 +1,0 @@
-PortBinding #class
-com.axonivy.connector.docker #namespace
-publicPort Number #field
-publicPort PERSISTENT #fieldModifier
-internalPort Number #field
-internalPort PERSISTENT #fieldModifier
