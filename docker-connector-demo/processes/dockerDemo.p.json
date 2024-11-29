@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "18A50F6DFF3B27D1",
   "config" : {
     "data" : "com.axonivy.market.docker.connector.demo.Data"
@@ -9,14 +9,17 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "outLink" : "start.ivp",
-        "tags" : "demo"
+        "signature" : "start"
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 88, "y" : 296 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -28,12 +31,8 @@
       "type" : "SubProcessCall",
       "name" : "Create axonivy-engine container",
       "config" : {
+        "processCall" : "docker:createContainer(String,String,List<com.axonivy.connector.docker.PortBinding>)",
         "call" : {
-          "params" : [
-            { "name" : "image", "type" : "String" },
-            { "name" : "name", "type" : "String" },
-            { "name" : "ports", "type" : "List<com.axonivy.connector.docker.PortBinding>" }
-          ],
           "map" : {
             "param.image" : "\"axonivy/axonivy-engine:10.0\"",
             "param.name" : "\"axonivy-engine\""
@@ -47,7 +46,6 @@
             "param.ports = [binding];"
           ]
         },
-        "processCall" : "docker:createContainer(String,String,List<com.axonivy.connector.docker.PortBinding>)",
         "output" : {
           "map" : {
             "out" : "in",
@@ -59,7 +57,9 @@
         "at" : { "x" : 216, "y" : 296 },
         "icon" : "res:/webContent/icons/docker.png"
       },
-      "connect" : { "id" : "f6", "to" : "f5" }
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
     }, {
       "id" : "f5",
       "type" : "SubProcessCall",
@@ -67,9 +67,6 @@
       "config" : {
         "processCall" : "docker:startContainer(String)",
         "call" : {
-          "params" : [
-            { "name" : "containerId", "type" : "String" }
-          ],
           "map" : {
             "param.containerId" : "in.containerId"
           }
@@ -79,7 +76,9 @@
         "at" : { "x" : 360, "y" : 296 },
         "icon" : "res:/webContent/icons/docker.png"
       },
-      "connect" : { "id" : "f13", "to" : "f12" }
+      "connect" : [
+        { "id" : "f13", "to" : "f12" }
+      ]
     }, {
       "id" : "f7",
       "type" : "SubProcessCall",
@@ -87,9 +86,6 @@
       "config" : {
         "processCall" : "docker:stopContainer(String)",
         "call" : {
-          "params" : [
-            { "name" : "containerId", "type" : "String" }
-          ],
           "map" : {
             "param.containerId" : "in.containerId"
           }
@@ -99,7 +95,9 @@
         "at" : { "x" : 680, "y" : 296 },
         "icon" : "res:/webContent/icons/docker.png"
       },
-      "connect" : { "id" : "f10", "to" : "f9" }
+      "connect" : [
+        { "id" : "f10", "to" : "f9" }
+      ]
     }, {
       "id" : "f9",
       "type" : "SubProcessCall",
@@ -107,9 +105,6 @@
       "config" : {
         "processCall" : "docker:removeContainer(String)",
         "call" : {
-          "params" : [
-            { "name" : "containerId", "type" : "String" }
-          ],
           "map" : {
             "param.containerId" : "in.containerId"
           }
@@ -119,7 +114,9 @@
         "at" : { "x" : 840, "y" : 296 },
         "icon" : "res:/webContent/icons/docker.png"
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f11",
       "type" : "ProcessAnnotation",
@@ -133,12 +130,13 @@
       "type" : "DialogCall",
       "name" : "ShowEngine",
       "config" : {
-        "dialogId" : "com.axonivy.market.docker.connector.demo.ShowEngine",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.market.docker.connector.demo.ShowEngine:start()"
       },
       "visual" : {
         "at" : { "x" : 520, "y" : 296 }
       },
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     } ]
 }

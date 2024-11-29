@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
   "id" : "18A50DF32C4DF1E5",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,12 +10,12 @@
       "type" : "CallSubStart",
       "name" : "createContainer(String,String,List<PortBinding>)",
       "config" : {
-        "callSignature" : "createContainer",
+        "signature" : "createContainer",
         "input" : {
           "params" : [
-            { "name" : "image", "type" : "String" },
-            { "name" : "name", "type" : "String" },
-            { "name" : "ports", "type" : "List<com.axonivy.connector.docker.PortBinding>" }
+            { "name" : "image", "type" : "String", "desc" : "" },
+            { "name" : "name", "type" : "String", "desc" : "" },
+            { "name" : "ports", "type" : "List<com.axonivy.connector.docker.PortBinding>", "desc" : "" }
           ],
           "map" : {
             "out.image" : "param.image",
@@ -25,19 +25,23 @@
         },
         "result" : {
           "params" : [
-            { "name" : "containerId", "type" : "String" }
+            { "name" : "containerId", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "result.containerId" : "in.containerId"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 176, "y" : 72 },
         "icon" : "res:/webContent/icons/docker.png?small"
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "CallSubEnd",
@@ -80,28 +84,34 @@
       "visual" : {
         "at" : { "x" : 360, "y" : 72 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "CallSubStart",
       "name" : "startContainer(String)",
       "config" : {
-        "callSignature" : "startContainer",
+        "signature" : "startContainer",
         "input" : {
           "params" : [
-            { "name" : "containerId", "type" : "String" }
+            { "name" : "containerId", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.containerId" : "param.containerId"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 176, "y" : 184 },
         "icon" : "res:/webContent/icons/docker.png?small"
       },
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : [
+        { "id" : "f8", "to" : "f7" }
+      ]
     }, {
       "id" : "f6",
       "type" : "CallSubEnd",
@@ -124,28 +134,34 @@
       "visual" : {
         "at" : { "x" : 368, "y" : 184 }
       },
-      "connect" : { "id" : "f9", "to" : "f6" }
+      "connect" : [
+        { "id" : "f9", "to" : "f6" }
+      ]
     }, {
       "id" : "f10",
       "type" : "CallSubStart",
       "name" : "stopContainer(String)",
       "config" : {
-        "callSignature" : "stopContainer",
+        "signature" : "stopContainer",
         "input" : {
           "params" : [
-            { "name" : "containerId", "type" : "String" }
+            { "name" : "containerId", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.containerId" : "param.containerId"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 176, "y" : 288 },
         "icon" : "res:/webContent/icons/docker.png?small"
       },
-      "connect" : { "id" : "f14", "to" : "f12" }
+      "connect" : [
+        { "id" : "f14", "to" : "f12" }
+      ]
     }, {
       "id" : "f11",
       "type" : "CallSubEnd",
@@ -168,28 +184,34 @@
       "visual" : {
         "at" : { "x" : 368, "y" : 288 }
       },
-      "connect" : { "id" : "f13", "to" : "f11" }
+      "connect" : [
+        { "id" : "f13", "to" : "f11" }
+      ]
     }, {
       "id" : "f15",
       "type" : "CallSubStart",
       "name" : "removeContainer",
       "config" : {
-        "callSignature" : "removeContainer",
+        "signature" : "removeContainer",
         "input" : {
           "params" : [
-            { "name" : "containerId", "type" : "String" }
+            { "name" : "containerId", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.containerId" : "param.containerId"
           }
-        },
-        "tags" : "connector"
+        }
       },
+      "tags" : [
+        "connector"
+      ],
       "visual" : {
         "at" : { "x" : 184, "y" : 408 },
         "icon" : "res:/webContent/icons/docker.png?small"
       },
-      "connect" : { "id" : "f18", "to" : "f17" }
+      "connect" : [
+        { "id" : "f18", "to" : "f17" }
+      ]
     }, {
       "id" : "f16",
       "type" : "CallSubEnd",
@@ -212,6 +234,8 @@
       "visual" : {
         "at" : { "x" : 376, "y" : 408 }
       },
-      "connect" : { "id" : "f19", "to" : "f16" }
+      "connect" : [
+        { "id" : "f19", "to" : "f16" }
+      ]
     } ]
 }
