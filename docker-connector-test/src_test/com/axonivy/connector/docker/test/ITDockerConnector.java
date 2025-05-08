@@ -1,4 +1,4 @@
-package com.axonivy.market.docker.connector.test;
+package com.axonivy.connector.docker.test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
