@@ -15,9 +15,6 @@
   <organization>
     <name>Axon Ivy AG</name>
   </organization>
-  <properties>
-    <project.build.plugin.version>12.0.0</project.build.plugin.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.connector.docker</groupId>
