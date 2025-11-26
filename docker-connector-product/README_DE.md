@@ -47,7 +47,7 @@ Der Behälter ist jetzt entfernt von Podman:
 
 ![Image](images/dockerdemo5.png)
 
-## Einrichtung
+## Setup
 
 Zu Einrichtung der Hafenarbeiter Connnector, füg zu die folgende Variable zu
 euren #Axon Efeu Projiziert:
