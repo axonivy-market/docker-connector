@@ -30,7 +30,7 @@ The container is now removed from Podman:
 
 ## Setup
 
-To setup the Docker Connnector, add the following variable to your Axon Ivy Project:
+To setup the Docker Connector, add the following variable to your Axon Ivy Project:
 ```
 @variables.yaml@
 ```
