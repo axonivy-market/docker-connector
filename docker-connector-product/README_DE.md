@@ -49,8 +49,8 @@ Der Behälter ist jetzt entfernt von Podman:
 
 ## Setup
 
-Zu Einrichtung der Hafenarbeiter Connnector, füg zu die folgende Variable zu
-euren #Axon Efeu Projiziert:
+To setup the Docker Connector, add the following variable to your Axon Ivy
+Project:
 ```
 @variables.yaml@
 ```
