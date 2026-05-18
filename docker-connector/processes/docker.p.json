@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/13.1.2/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/13.2.0/process.json",
   "id" : "18A50DF32C4DF1E5",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -37,7 +37,7 @@
       ],
       "visual" : {
         "at" : { "x" : 176, "y" : 72 },
-        "icon" : "res:/webContent/icons/docker.png?small"
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : [
         { "id" : "f4", "to" : "f3" }
@@ -107,7 +107,7 @@
       ],
       "visual" : {
         "at" : { "x" : 176, "y" : 184 },
-        "icon" : "res:/webContent/icons/docker.png?small"
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : [
         { "id" : "f8", "to" : "f7" }
@@ -157,7 +157,7 @@
       ],
       "visual" : {
         "at" : { "x" : 176, "y" : 288 },
-        "icon" : "res:/webContent/icons/docker.png?small"
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : [
         { "id" : "f14", "to" : "f12" }
@@ -207,7 +207,7 @@
       ],
       "visual" : {
         "at" : { "x" : 184, "y" : 408 },
-        "icon" : "res:/webContent/icons/docker.png?small"
+        "icon" : "res:/webContent/icons/docker.png"
       },
       "connect" : [
         { "id" : "f18", "to" : "f17" }
