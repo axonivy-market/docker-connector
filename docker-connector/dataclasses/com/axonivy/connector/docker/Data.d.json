@@ -1,23 +1,15 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/12.0.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "Data",
   "namespace" : "com.axonivy.connector.docker",
-  "isBusinessCaseData" : false,
   "fields" : [ {
-    "name" : "image",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "image"
   }, {
     "name" : "ports",
-    "type" : "List<com.axonivy.connector.docker.PortBinding>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.axonivy.connector.docker.PortBinding>"
   }, {
-    "name" : "containerId",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "containerId"
   }, {
-    "name" : "name",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "name" : "name"
   } ]
 }
